@@ -1,0 +1,15 @@
+.form-title {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+.cart-img {
+  width: 100px;
+  height: 100px;
+}
+.food-cart-card {
+  background-color: rgb(218, 212, 212);
+  padding: 20px;
+}
+.food-cart-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

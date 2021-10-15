@@ -1,0 +1,29 @@
+.top-img {
+  width: 250px;
+  margin: auto;
+  margin-top: 40px;
+}
+.signup-btn {
+  background-color: #cc1534;
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+.input-field {
+  border: none;
+  background-color: rgb(226, 220, 220);
+  height: 50px;
+  margin-bottom: 30px;
+}
+
+.link {
+  text-decoration: none;
+  margin-top: 20px;
+  display: block;
+  color: #cc1534;
+  text-align: center;
+  cursor: pointer;
+}

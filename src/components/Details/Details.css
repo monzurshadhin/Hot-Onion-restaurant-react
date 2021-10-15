@@ -1,0 +1,21 @@
+.quantity-btn {
+  border: none;
+  outline: none;
+  background-color: #cc1534;
+  color: white;
+  padding: 5px 8px;
+}
+.quantity-input {
+  width: 50px;
+  padding: 4px;
+  border: 1px solid #cc1534;
+}
+.cart-btn {
+  background-color: #cc1534;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+}

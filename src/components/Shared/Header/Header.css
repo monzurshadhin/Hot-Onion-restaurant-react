@@ -1,0 +1,32 @@
+.logo {
+  width: 150px;
+}
+.navbar {
+  background-color: #fcf4e0;
+}
+a {
+  font-weight: 500;
+  font-size: 18px;
+}
+.signUp-btn {
+  border: none;
+  outline: none;
+  background-color: #cc1534;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 50px;
+}
+.user-name {
+  text-decoration: none;
+  margin-right: 5px;
+}
+.logout-btn {
+  outline: none;
+  border: none;
+  background-color: #cc1534;
+  color: white;
+  padding: 0px 15px;
+  border-radius: 50px;
+  font-size: 18px;
+  width: 100px;
+}
