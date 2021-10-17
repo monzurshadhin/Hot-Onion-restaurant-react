@@ -3,8 +3,9 @@ import { Container } from "react-bootstrap";
 import useFoods from "../../../hooks/useFoods";
 import "./Banner.css";
 
-const Banner = () => {
-  const {handleSearch} = useFoods();
+const Banner = (props) => {
+  // const {handleSearch} = useFoods();
+  const {handleSearch} = props;
   return (
     <div className="banner" id="home">
       <Container>

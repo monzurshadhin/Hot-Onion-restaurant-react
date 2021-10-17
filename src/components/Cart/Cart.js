@@ -1,12 +1,16 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import useAuth from "../../hooks/useAuth";
 import useFoods from "../../hooks/useFoods";
 import useHandleCart from "../../hooks/useHandleCart";
 import "./cart.css";
 
 const Cart = () => {
   // console.log(cart)
-  const { foodCart,handleRemove,handleOrder } = useHandleCart();
+  const {allContext,allFoods,allHandles} = useAuth();
+  // const { foodCart,handleRemove,handleOrder } = useHandleCart();
+  const { foodCart,handleRemove,handleOrder } = allHandles;
+
   const {handleAddButton,handleRemoveButton,quantity} = useFoods();
   console.log(foodCart);
   const total = foodCart.reduce((prev,current)=>prev+current.price*current.quantity,0);
@@ -15,7 +19,7 @@ const Cart = () => {
   const grandTotal = (total+tax+deliveryFee).toFixed(2)
   return (
     <div className="container">
-      <div className="row mt-5">
+      <div className="row my-5">
         <div className="col-12 col-md-6 col-lg-8">
           <h1 className="form-title my-5">Edit Delivery Details</h1>
           <Form>
@@ -68,27 +72,6 @@ const Cart = () => {
           <p>From <b>Gulshan Pizza Restaurant GPR</b></p>
           <p>Arriving in 20-30 min</p>
           <p>107 Rd No 8</p>
-          
-            {foodCart.map((food) => (
-              
-              <div className="d-flex  align-items-center ps-2 mt-5 food-cart-card">
-                <img className="img-fluid cart-img me-4" src={food.img} alt="" />
-                <div>
-                  <p>{food.name}</p>
-                  <h6><b>$ {food.price * food.quantity}</b></h6>
-                  <p><small>Free delivery</small></p>
-                  <button className="quantity-btn" onClick={handleRemoveButton}>-</button>
-                    <input className="quantity-input" type="text" value={food.quantity} />
-                    <button className="quantity-btn" onClick={handleAddButton}>+</button>
-
-                    <button onClick={()=>handleRemove(food.id)} className="d-block mt-2 btn btn-danger">Remove</button>
-                </div>
-                
-                
-                
-              </div>
-
-            ))}
             <div className="my-4">
               <div className="d-flex justify-content-between px-2 ">
                 <p><b>Subtotal . {foodCart.length} item</b></p>
@@ -109,6 +92,29 @@ const Cart = () => {
               <Button onClick={handleOrder} className="signup-btn" type="submit">
               Place order
             </Button>
+            </div>
+            <div className="cart-container">
+              
+            {foodCart.map((food) => (
+              
+              <div className="d-flex  align-items-center ps-2 mb-2 food-cart-card">
+                <img className="img-fluid cart-img me-4" src={food.img} alt="" />
+                <div>
+                  <p>{food.name}</p>
+                  <h6><b>$ {(food.price * food.quantity).toFixed(2)}</b></h6>
+                  <p><small>Free delivery</small></p>
+                  <button className="quantity-btn" onClick={handleRemoveButton}>-</button>
+                    <input className="quantity-input" type="text" value={food.quantity} />
+                    <button className="quantity-btn" onClick={handleAddButton}>+</button>
+
+                    <button onClick={()=>handleRemove(food.id)} className="d-block mt-2 btn btn-danger">Remove</button>
+                </div>
+                
+                
+                
+              </div>
+
+            ))}
             </div>
             
           

@@ -5,12 +5,15 @@ import useAuth from "../../../hooks/useAuth";
 import logo from "../../../images/logo2.png";
 import './Login.css';
 const Login = () => {
-  const { signInUsingGoogle,signInUsingFacebook,signInUsingGithub,loginProcess,handleEmail,handlePassword,handleResetPassword,message,setIsLoading,setUser,setMessage } = useAuth();
+  console.log(useAuth());
+  const {allContext,allFoods,allHandles} = useAuth();
+  console.log(allContext)
+  const { signInUsingGoogle,signInUsingFacebook,signInUsingGithub,loginProcess,handleEmail,handlePassword,handleResetPassword,message,setIsLoading,setUser,setMessage } = allContext;
 
   
   const location = useLocation();
     const history = useHistory();
-    const redirect_uri = location.state?.from || '/shop';
+    const redirect_uri = location.state?.from || '/home';
   
   const handleGoogleLogin =()=>{
     signInUsingGoogle()
@@ -61,12 +64,12 @@ const Login = () => {
     loginProcess()
     .then((result) => {
         setUser(result.user);
-        setMessage('Successfully register');
+        setMessage('Successfully login');
         history.push(redirect_uri);
         //  console.log(result.user)
       })
       .catch(()=>{
-        setMessage('registration failed');
+        setMessage('login failed');
       })
   }
   return (

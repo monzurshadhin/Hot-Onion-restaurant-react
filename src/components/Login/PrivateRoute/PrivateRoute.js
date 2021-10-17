@@ -4,7 +4,8 @@ import { Redirect, Route } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 
 const PrivateRoute = ({children,...rest}) => {
-    const { user,isLoading } = useAuth();
+  const {allContext,allFoods,allHandles} = useAuth();
+    const { user,isLoading } = allContext;
     if(isLoading){
         return(
             <div className="d-flex justify-content-center mt-5">

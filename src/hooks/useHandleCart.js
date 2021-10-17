@@ -5,7 +5,7 @@ import useFoods from "./useFoods";
 const useHandleCart = () =>{
     
     const [foodCart,setFoodCart] = useState([]);
-    const [cartQuantity,setCartQuantity] = useState(0)
+    
     
     //    console.log(cart)
     const handleAddToCart = ([details,quantity]) =>{
@@ -29,13 +29,12 @@ const useHandleCart = () =>{
                     const quantity = savedCarts[key];
                     addedFood.quantity = quantity;
                     storedCart.push(addedFood)
-                    setCartQuantity(storedCart.length)
+                    // setCartQuantity(storedCart.length)
                 }
             }
             setFoodCart(storedCart);
-            
         }
-    },[foods])
+    },[foods,foodCart])//food load howar pore ei use effect kaj korbe and 
     
     const handleRemove =(key)=>{
         
@@ -52,7 +51,7 @@ const useHandleCart = () =>{
             handleAddToCart,
             foodCart,
             handleRemove,
-            cartQuantity,
+            
             handleOrder
         }
 }

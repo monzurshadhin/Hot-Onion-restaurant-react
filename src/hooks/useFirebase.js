@@ -30,14 +30,17 @@ const useFirebase = () => {
   };
   const registerNewUsers = (e) =>{
     e.preventDefault();
+    console.log("register")
     if (password.length < 6) {
       // setError("password must be at least 6 character long");
       // setMessage("");
+      console.log("length")
       return;
     }
     if (!/(?=.*?[A-Z])/.test(password)) {
       // setError("password must be at least 1 upper case latter");
       // setMessage("");
+      console.log("password")
 
       return;
     }
@@ -46,10 +49,11 @@ const useFirebase = () => {
     updateBasicInfo();
     veryfyEmail();
     setMessage('Successfully register');
+    logOut();
   })
-  .catch((error) => {
-    setMessage('register faild');
-  });
+  // .catch((error) => {
+  //   setMessage('register faild');
+  // });
   }
   const veryfyEmail = () => {
     sendEmailVerification(auth.currentUser).then(() => {

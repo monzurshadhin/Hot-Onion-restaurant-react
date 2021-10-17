@@ -8,7 +8,8 @@ import logo from "../../../images/logo2.png";
 import "./Header.css";
 
 const Header = () => {
-  const { user, logOut } = useAuth();
+  const {allContext,allFoods,allHandles} = useAuth();
+  const { user, logOut } = allContext;
   const {foodCart,cartQuantity} = useHandleCart();
   
   return (
@@ -37,7 +38,8 @@ const Header = () => {
             <Nav.Link as={Link} to="/cart">
               <i className="fas fa-shopping-cart position-relative">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  {cartQuantity}
+                  {foodCart.length}
+                  <span class="visually-hidden">unread messages</span>
                 </span>
               </i>
             </Nav.Link>

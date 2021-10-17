@@ -5,8 +5,11 @@ import useAuth from "../../hooks/useAuth";
 import logo from "../../images/logo2.png";
 import "./Register.css";
 const Register = () => {
-    const {signInUsingGoogle,signInUsingFacebook,signInUsingGithub,handleEmail,handlePassword,handleName,registerNewUsers,message} =useAuth();
-  return (
+  const {allContext,allFoods,allHandles} = useAuth();
+  
+    const {signInUsingGoogle,signInUsingFacebook,signInUsingGithub,handleEmail,handlePassword,handleName,registerNewUsers,message} =allContext;
+    // console.log(registerNewUsers)
+    return (
     <div className="container">
       
         <div className="row">
